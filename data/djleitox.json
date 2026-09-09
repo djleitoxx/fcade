@@ -1,0 +1,14 @@
+{
+  "fetchedAt": "2026-09-09T23:32:00.298Z",
+  "username": "djleitox",
+  "user": {
+    "res": "ERR",
+    "error": "SyntaxError: Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON"
+  },
+  "replays": {
+    "res": "ERR",
+    "error": "SyntaxError: Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON"
+  },
+  "ranking": null,
+  "rankingGame": null
+}
