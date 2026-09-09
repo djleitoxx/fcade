@@ -1,4 +1,3 @@
-
 #!/usr/bin/env node
 /**
  * Fightcade Scraper (para correr en GitHub Actions)
