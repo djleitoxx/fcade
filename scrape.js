@@ -1,3 +1,4 @@
+
 #!/usr/bin/env node
 /**
  * Fightcade Scraper (para correr en GitHub Actions)
@@ -35,15 +36,25 @@ const UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 ' +
 
 async function callApi(page, payload) {
   return page.evaluate(async (payload) => {
+    let res;
     try {
-      const res = await fetch('https://www.fightcade.com/api/', {
+      res = await fetch('https://www.fightcade.com/api/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
       });
-      return await res.json();
     } catch (e) {
-      return { res: 'ERR', error: String(e) };
+      return { res: 'ERR', error: 'fetch fallo: ' + String(e) };
+    }
+    const text = await res.text();
+    try {
+      return JSON.parse(text);
+    } catch (e) {
+      return {
+        res: 'ERR',
+        error: 'respuesta no-JSON (HTTP ' + res.status + '): ' + String(e),
+        rawSnippet: text.slice(0, 400),
+      };
     }
   }, payload);
 }
@@ -56,6 +67,11 @@ async function scrapeOne(browser, username) {
     waitUntil: 'networkidle2',
     timeout: 30000,
   });
+
+  // Diagnostico: si Cloudflare nos mostro una pagina de verificacion
+  // en vez del perfil, el titulo de la pagina lo va a delatar.
+  const pageTitle = await page.title();
+  const pageUrl = page.url();
 
   const userData = await callApi(page, { req: 'getuser', username });
 
@@ -82,6 +98,7 @@ async function scrapeOne(browser, username) {
   return {
     fetchedAt: new Date().toISOString(),
     username,
+    diagnostics: { pageTitle, pageUrl },
     user: userData,
     replays: replaysData,
     ranking: rankingData,
