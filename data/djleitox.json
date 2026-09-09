@@ -1,13 +1,19 @@
 {
-  "fetchedAt": "2026-09-09T23:38:36.850Z",
+  "fetchedAt": "2026-09-09T23:59:56.993Z",
   "username": "djleitox",
+  "diagnostics": {
+    "pageTitle": "Just a moment...",
+    "pageUrl": "https://www.fightcade.com/id/djleitox"
+  },
   "user": {
     "res": "ERR",
-    "error": "SyntaxError: Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON"
+    "error": "respuesta no-JSON (HTTP 403): SyntaxError: Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON",
+    "rawSnippet": "<!DOCTYPE html><html lang=\"en-US\"><head><title>Just a moment...</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"><meta name=\"robots\" content=\"noindex,nofollow\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><meta http-equiv=\"content-security-policy\" content=\"default-src &#39;none&#39;; script-src &#39"
   },
   "replays": {
     "res": "ERR",
-    "error": "SyntaxError: Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON"
+    "error": "respuesta no-JSON (HTTP 403): SyntaxError: Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON",
+    "rawSnippet": "<!DOCTYPE html><html lang=\"en-US\"><head><title>Just a moment...</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"><meta name=\"robots\" content=\"noindex,nofollow\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><meta http-equiv=\"content-security-policy\" content=\"default-src &#39;none&#39;; script-src &#39"
   },
   "ranking": null,
   "rankingGame": null
